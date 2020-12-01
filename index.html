@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clone-Youtube</title>
+    <link rel="stylesheet" href="./css/default.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <script src="https://kit.fontawesome.com/bdf3223b68.js" crossorigin="anonymous"></script>
+    <header>
+        <div class="start">
+            <button class="menubar">
+                <i class="fas fa-bars fa-lg"></i>
+            </button>
+            <div class="logo">
+                <i class="fab fa-youtube fa-2x"></i>
+                <h1>Jutube</h1>
+            </div>
+        </div>
+        <form action="">
+            <input type="search" name="" id="">
+            <!--<input type="submit" value="" >-->
+            <button class="submit">
+                <i class="fas fa-search fa-sm""></i>
+            </button>
+        </form>
+        <div class="end">
+            <button class="uploader">
+                <i class="fas fa-video fa-sm"></i>
+            </button>
+            <button class="youtubeApp">
+                <i class="fas fa-th fa-sm"></i>
+            </button>
+            <button class="noti">
+                <i class="fas fa-bell fa-sm"></i>
+            </button>
+            <button class="user">
+                <i class="fas fa-user fa-sm"></i>
+            </button>
+        </div>
+    </header>
+
+    <section class="contents">
+        <div class="left">
+            <video controls>
+                <source src="./videos/road.mp4"
+                        type="video/webm">
+            
+                <source src="./videos/road.mp4"
+                        type="video/mp4">
+                Sorry, your browser doesn't support embedded videos.
+            </video>
+            <div class="videoInfo">
+                <h1>Clone Coding: Youtube Mobile Website 유튜브 모바일 웹사이트 따라
+                    만들기 | 프론트엔드 개발자 입문편: HTML, CSS, Javascript
+                    드림코딩과 함께하는 프론트엔드 실전 입문편</h1>
+                <div class="videoInfo-row">
+                    <div class="info-text">
+                        <div class="viewcount">
+                            <span>조회수 34152회</span>
+                        </div>
+                        <div class="date">
+                            2020. 3.14
+                        </div>
+                    </div>
+                    <ul class="menu-container">
+                        <li class="likes">
+                            <button class="likes-icon">
+                                <i class="fas fa-thumbs-up"></i>
+                            </button>
+                            <span>1천</span>
+                        </li>
+                        <li class="dislikes">
+                            <button class="dislikes-icon">
+                                <i class="fas fa-thumbs-down"></i>
+                            </button>
+                            <span>8</span>
+                        </li>
+                        <li class="share">
+                            <button class="share-icon">
+                                <i class="fas fa-share"></i>   
+                            </button>
+                            <span>공유</span>
+                        </li>
+                        <li class="save">
+                            <button class="save-icon">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                            <span>저장</span>
+                        </li>
+                        <li class="menu">
+                            <button class="menu">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="metacontents">
+                <div class="toprow">
+                    <div class="channel">
+                        <a href=""><img src="./images/channel.jpg" alt="channel-img"></a>
+                        <div class="channel-desc">
+                            <h2>recordings;</h2>
+                            <span>구독자 4.49만명</span>
+                        </div>
+                    </div>
+                    <button class="subscribe">
+                        구독
+                    </button>
+                </div>
+                <div class="description">
+                    <span>
+                        유튜브 사이트를 반응형으로 만들어 볼꺼예요. 순수 HTML, CSS를 이용해서 (Javascript 약간) 만들어 보고, 다음에 Javascript를 배우면 동적으로 서버에서 데이터를 가져오는 연습을 더 해보도록 할께요.
+                    </span>
+                    <details>
+                        <summary>더보기</summary>
+                        <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
+                    </details>
+                </div>
+            </div>
+            <section class="comments">
+                <div class="comments-count">
+                    <span>댓글 10개</span>
+                </div>
+                <div class="write-comment">
+                    <a href=""><img src="./images/channel.jpg" alt=""></a>
+                    <form action="">
+                        <input type="text" name="comment" id="" placeholder="공개 댓글 추가 ...">
+                        <span class="active"></span>
+                        <!--<input type="submit" value="" >-->
+                    </form>
+                </div>
+            </section>
+        </div>
+        <div class="right">
+            <div class="top">
+                <span>다음 동영상</span>
+                <div class="autoplay">
+                    자동재생
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                
+            </div>
+            <ul class="lists">
+                <li> 
+                    <video  poster="./images/coffe.png">
+                        <source src="./videos/coffe.mp4"
+                                type="video/mp4">
+                    </video>
+                    <div class="video-info">
+                        <h3>Coffe</h3>
+                        <div class="uploader">recordings;</div>
+                        <div>조회수 98만회 * 
+                            3주 전</div>
+                    </div>
+                </li>
+                <li> 
+                    <video poster="./images/film.png">
+                        <source src="./videos/film.mp4"
+                                type="video/mp4">
+                    </video>
+                    <div class="video-info">
+                        <h3>Film</h3>
+                        <div class="uploader">recordings;</div>
+                        <div>조회수 98만회 * 3주 전</div>
+                    </div>
+                </li>
+                <li> 
+                    <video poster="./images/LP.png">
+                        <source src="./videos/LP.mp4"
+                                type="video/mp4">
+                    </video>
+                    <div class="video-info">
+                        <h3>LP</h3>
+                        <div class="uploader">recordings;</div>
+                        <div>조회수 98만회 * 3주 전</div>
+                    </div>
+                    
+                </li>
+                <li> 
+                    <video poster="./images/macbook.png">
+                        <source src="./videos/macbook.mp4"
+                                type="video/mp4">
+                    </video>
+                    <div class="video-info">
+                        <h3>Macbook</h3>
+                        <div class="uploader">recordings;</div>
+                        <div>조회수 98만회 * 3주 전</div>
+                    </div>
+                </li>
+                <li> 
+                    <video poster="./images/newyork.png">
+                        <source src="./videos/newyork.mp4"
+                                type="video/mp4">
+                    </video>
+                    <div class="video-info">
+                        <h3>NewYork</h3>
+                        <div class="uploader">recordings;</div>
+                        <div>조회수 98만회 * 3주 전</div>
+                    </div>
+                </li>
+                <li> 
+                    <video poster="./images/road.png">
+                        <source src="./videos/road.mp4"
+                                type="video/mp4">
+                    </video>
+                    <div class="video-info">
+                        <h3>Coffe</h3>
+                        <div class="uploader">recordings;</div>
+                        <div>조회수 98만회 * 3주 전</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    
+</body>
+</html>

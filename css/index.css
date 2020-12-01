@@ -1,0 +1,256 @@
+:root {
+  --wide-white-space: 16px;
+  --narrow-white-space: 8px;
+  --point-color: #2196f3;
+  --low-gray: #e9e9e9;
+  --middle-gray: #ccc;
+  --high-gray: gray;
+}
+body {
+  width: calc(100vw - (100vw - 100%));
+  overflow-x: hidden;
+}
+* {
+  box-sizing: border-box;
+}
+/* -- header -- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px 8px;
+}
+.start {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menubar {
+  margin-right: var(--wide-white-space);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logo h1 {
+  font-size: 20px;
+}
+header form {
+  display: flex;
+  width: 40%;
+}
+.submit {
+  width: 36px;
+}
+.end {
+  display: flex;
+}
+.end button {
+  background-color: transparent;
+  font-size: 20px;
+  padding: var(--wide-white-space);
+}
+
+/*contents*/
+
+.contents {
+  display: flex;
+  margin: auto;
+  max-width: 1280px;
+}
+.contents .left {
+  display: flex;
+  flex-direction: column;
+  padding: 1em 2em 1em;
+  width: 66%;
+}
+.contents .left video {
+  width: 100%;
+}
+.contents .left h1 {
+  padding: 8px 0 8px 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.contents .videoInfo {
+  padding: 8px 0 8px;
+  border-top: 1px groove gray;
+  border-bottom: 1px groove gray;
+}
+.contents .left .videoInfo-row {
+  display: flex;
+  justify-content: space-between;
+}
+.info-text {
+  display: flex;
+  align-items: center;
+}
+.viewcount {
+  margin-right: var(--narrow-white-space);
+}
+.menu-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.menu-container li {
+  margin-left: var(--wide-white-space);
+}
+.menu-container li i {
+  margin-right: 4px;
+}
+.menu-container li:nth-child(1) i,
+.menu-container li:nth-child(3) i {
+  transform: translateY(-25%);
+}
+.menu-container li:nth-child(4) i {
+  transform: translateY(-20%);
+}
+.menu-container button {
+  background-color: transparent;
+}
+.metacontents {
+  padding-bottom: var(--wide-white-space);
+  border-bottom: 1px groove gray;
+}
+.metacontents .toprow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0 8px;
+}
+.metacontents .toprow button {
+  width: 80px;
+  height: 40px;
+}
+.metacontents .description {
+  margin-left: 65px;
+}
+.metacontents .channel {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.metacontents .channel-desc {
+  display: flex;
+  flex-direction: column;
+}
+.metacontents .channel a,
+.write-comment a {
+  display: block;
+  width: 65px;
+}
+.metacontents img,
+.comments img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+.comments {
+  margin: 16px 0 16px;
+}
+.comments-count {
+  margin-bottom: var(--wide-white-space);
+}
+.write-comment {
+  display: flex;
+  align-items: center;
+}
+.write-comment form {
+  width: 100%;
+}
+.write-comment input {
+  outline: 0;
+  border-width: 0;
+  background-color: #e9e9e9;
+}
+.write-comment input:focus {
+  border-color: black;
+}
+
+.contents .right {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  padding: 1em;
+}
+.contents .right .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0 8px;
+}
+/* switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/*--자동재생  off --*/
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 20px;
+  width: 20px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+/*--자동재생  on --*/
+input:checked + .slider {
+  background-color: gray;
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+  background-color: var(--point-color);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 15px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.contents .right li {
+  list-style: none;
+  display: flex;
+  padding: 4px 8px 4px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.contents .right li video {
+  width: 180px;
+  margin-right: var(--narrow-white-space);
+}
+.contents .right .videoInfo {
+  display: flex;
+}
