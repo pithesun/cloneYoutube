@@ -7,6 +7,7 @@
   --high-gray: gray;
 }
 body {
+  /*remove scroll width*/
   width: calc(100vw - (100vw - 100%));
   overflow-x: hidden;
 }
@@ -19,6 +20,12 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 8px 16px 8px;
+  background-color: white;
+}
+.sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
 }
 .start {
   display: flex;
@@ -29,12 +36,17 @@ header {
   margin-right: var(--wide-white-space);
 }
 
-.logo {
+.logo a {
   display: flex;
   align-items: center;
 }
 .logo h1 {
-  font-size: 20px;
+  font-size: 24px;
+  font-weight: bolder;
+  color: rgb(69, 68, 68);
+}
+.logo i {
+  color: var(--point-color);
 }
 header form {
   display: flex;
@@ -111,6 +123,9 @@ header form {
 }
 .menu-container button {
   background-color: transparent;
+}
+.menu-container button i.active {
+  color: var(--point-color);
 }
 .metacontents {
   padding-bottom: var(--wide-white-space);
@@ -253,4 +268,7 @@ input:checked + .slider:before {
 }
 .contents .right .videoInfo {
   display: flex;
+}
+
+@media screen and (min-width: 790px) {
 }

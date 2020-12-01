@@ -9,14 +9,18 @@
 </head>
 <body>
     <script src="https://kit.fontawesome.com/bdf3223b68.js" crossorigin="anonymous"></script>
+    </script>
+   
     <header>
         <div class="start">
             <button class="menubar">
                 <i class="fas fa-bars fa-lg"></i>
             </button>
             <div class="logo">
-                <i class="fab fa-youtube fa-2x"></i>
-                <h1>Jutube</h1>
+                <a href="">
+                    <i class="fab fa-youtube fa-2x"></i>
+                    <h1>Jutube</h1>
+                </a>
             </div>
         </div>
         <form action="">
@@ -68,7 +72,7 @@
                     <ul class="menu-container">
                         <li class="likes">
                             <button class="likes-icon">
-                                <i class="fas fa-thumbs-up"></i>
+                                <i class="fas fa-thumbs-up active"></i>
                             </button>
                             <span>1천</span>
                         </li>
@@ -185,8 +189,7 @@
                 </li>
                 <li> 
                     <video poster="./images/macbook.png">
-                        <source src="./videos/macbook.mp4"
-                                type="video/mp4">
+                        <source src="./videos/mapbook.mp4" type="video/mp4">
                     </video>
                     <div class="video-info">
                         <h3>Macbook</h3>
@@ -219,6 +222,20 @@
             </ul>
         </div>
     </section>
-    
+    <script>
+        window.onscroll = function() {myFunction()};
+
+        var header = document.querySelector("header");
+        console.log("header",header);
+        var sticky = header.offsetTop;
+
+        function myFunction() {
+        if (window.pageYOffset >= sticky) {
+            header.classList.add("sticky")
+        } else {
+            header.classList.remove("sticky");
+        }
+        }
+    </script>
 </body>
 </html>
