@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const { User } = require("./models/User");
 const config = require('./config/key');
 const cookieParser = require('cookie-parser');
+const { auth } = require("./middleware/auth");
 
 /*--body-parser option--*/
 
@@ -47,7 +48,7 @@ app.post('/register', (req, res)=>{
 })
 
 /*--로그인 라우터--*/
-app.post('/login', (req, res)=> {
+app.post('/api/login', (req, res)=> {
 
   //요청된 이메일을 데이터베이스 안에서 찾기
   User.findOne({ email: req.body.email }, (err, user)=> {
@@ -66,7 +67,7 @@ app.post('/login', (req, res)=> {
         user.generateToken((err, user) => {
           if(err) return res.status(400).send(err);
 
-          // token을 저장한다. 어디에? 쿠키, 로컬스토리지, 세션 등 (어디에 저장해야 안전한가/) 
+          // token을 client에 저장한다. 어디에? 쿠키, 로컬스토리지, 세션 등 (어디에 저장해야 안전한가/) 
           res.cookie("x_auth", user.token)
           .status(200)
           .json({ loginSuccess: true, userId: user._id})
@@ -75,6 +76,29 @@ app.post('/login', (req, res)=> {
     })
   })
 })
+
+/*-- Auth 기능 만들기 --*/
+// 서버의 토큰과 클라이언트의 토큰을 확인하기 
+// role 0 일반 유저 0이 아니면 관리자 
+
+// express에서 제공되는 라우터를 이용해서 라우터들을 정리하기 위해 api 사용
+app.get('/api/users/auth', auth, (req, res) => {
+  
+  /*-- middle ware 통과 => Auth: true-- */
+  res.status(200).json({
+    _id: req.user._id,
+    isAdmin: req.user.role === 0 ? false: true,
+    isAuth: true,
+    email: req.user.email,
+    name: req.user.name,
+    lastname: req.user.lastname,
+    role: req.user.role,
+    image: req.user.image
+  })
+
+})
+
+
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
