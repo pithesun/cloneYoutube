@@ -12,7 +12,7 @@ let auth = (req, res, next) => {
         if(err) throw arr;
         if(!user) return res.json({ isAuth: false, error: true })
 
-        //라우터에서 사용할 수 있게 하기 위해
+        //라우터에서 사용할 수 있게 하기 위함
         req.token = token;
         req.user = user;
 
