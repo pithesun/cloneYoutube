@@ -10,6 +10,7 @@
 <body>
     <script src="https://kit.fontawesome.com/bdf3223b68.js" crossorigin="anonymous"></script>
     </script>
+    <script async src="./JS/main.js"></script>
     <header>
         <div class="start">
             <button class="menubar">
@@ -71,7 +72,7 @@
                     <ul class="menu-container">
                         <li class="likes">
                             <button class="likes-icon">
-                                <i class="fas fa-thumbs-up active"></i>
+                                <i class="fas fa-thumbs-up"></i>
                             </button>
                             <span>1천</span>
                         </li>
@@ -152,10 +153,11 @@
             </div>
             <ul class="lists">
                 <li> 
-                    <video  poster="./images/coffe.png">
+                    <video id="video" poster="./images/coffe.png" unmuted autoplay>
                         <source src="./videos/coffe.mp4"
                                 type="video/mp4">
                     </video>
+                    <button id="autoplay">autoplay</button>
                     <div class="video-info">
                         <h3>Coffe</h3>
                         <div class="uploader">recordings;</div>
@@ -163,65 +165,10 @@
                             3주 전</div>
                     </div>
                 </li>
-                <li> 
-                    <video poster="./images/film.png">
-                        <source src="./videos/film.mp4"
-                                type="video/mp4">
-                    </video>
-                    <div class="video-info">
-                        <h3>Film</h3>
-                        <div class="uploader">recordings;</div>
-                        <div>조회수 98만회 * 3주 전</div>
-                    </div>
-                </li>
-                <li> 
-                    <video poster="./images/LP.png">
-                        <source src="./videos/LP.mp4"
-                                type="video/mp4">
-                    </video>
-                    <div class="video-info">
-                        <h3>LP</h3>
-                        <div class="uploader">recordings;</div>
-                        <div>조회수 98만회 * 3주 전</div>
-                    </div>
-                    
-                </li>
-                <li> 
-                    <video poster="./images/macbook.png">
-                        <source src="./videos/mapbook.mp4" type="video/mp4">
-                    </video>
-                    <div class="video-info">
-                        <h3>Macbook</h3>
-                        <div class="uploader">recordings;</div>
-                        <div>조회수 98만회 * 3주 전</div>
-                    </div>
-                </li>
-                <li> 
-                    <video poster="./images/newyork.png">
-                        <source src="./videos/newyork.mp4"
-                                type="video/mp4">
-                    </video>
-                    <div class="video-info">
-                        <h3>NewYork</h3>
-                        <div class="uploader">recordings;</div>
-                        <div>조회수 98만회 * 3주 전</div>
-                    </div>
-                </li>
-                <li> 
-                    <video poster="./images/road.png">
-                        <source src="./videos/road.mp4"
-                                type="video/mp4">
-                    </video>
-                    <div class="video-info">
-                        <h3>Coffe</h3>
-                        <div class="uploader">recordings;</div>
-                        <div>조회수 98만회 * 3주 전</div>
-                    </div>
-                </li>
             </ul>
         </div>
     </section>
-    <script>
+    <script async>
         window.onscroll = function() {myFunction()};
 
         var header = document.querySelector("header");

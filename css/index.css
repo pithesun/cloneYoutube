@@ -123,7 +123,11 @@ header form {
 .menu-container button {
   background-color: transparent;
 }
-.menu-container button i.active {
+.menu-container button:hover {
+  cursor: pointer;
+}
+.fa-thumbs-up.active,
+.fa-thumbs-down.active {
   color: var(--point-color);
 }
 .metacontents {
@@ -136,10 +140,17 @@ header form {
   align-items: center;
   padding: 8px 0 8px;
 }
-.metacontents .toprow button {
+.metacontents .subscribe {
   width: 80px;
   height: 40px;
+  border-radius: 4px;
+  margin-right: 2px;
 }
+.metacontents .subscribe.active {
+  background-color: #cc0000;
+  color: white;
+}
+
 .metacontents .description {
   margin-left: 65px;
 }

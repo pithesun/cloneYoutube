@@ -1,0 +1,67 @@
+{
+    "videos": [
+        {
+            "type": "video/mp4",
+            "title": "Coffe",
+            "video": "./videos/coffe.mp4",
+            "image": "./images/coffe.png",
+            "uploader": "recordings;",
+            "viewcount": "98만",
+            "postdate": "2020.12.14"
+        },
+        {
+            "type": "video/mp4",
+            "title": "Film",
+            "video": "./videos/film.mp4",
+            "image": "./images/film.png",
+            "uploader": "recordings;",
+            "viewcount": "98만",
+            "postdate": "2020.12.14"
+        },
+        {
+            "type": "video/mp4",
+            "title": "LP",
+            "video": "./videos/LP.mp4",
+            "image": "./images/LP.png",
+            "uploader": "recordings;",
+            "viewcount": "98만",
+            "postdate": "2020.12.14"
+        },
+        {
+            "type": "video/mp4",
+            "title": "LP",
+            "video": "./videos/LP.mp4",
+            "image": "./images/LP.png",
+            "uploader": "recordings;",
+            "viewcount": "98만",
+            "postdate": "2020.12.14"
+        },
+        {
+            "type": "video/mp4",
+            "title": "macbook",
+            "video": "./videos/macbook.mp4",
+            "image": "./images/macbook.png",
+            "uploader": "recordings;",
+            "viewcount": "98만",
+            "postdate": "2020.12.14"
+        },
+        {
+            "type": "video/mp4",
+            "title": "newyork",
+            "video": "./videos/newyork.mp4",
+            "image": "./images/newyork.png",
+            "uploader": "recordings;",
+            "viewcount": "98만",
+            "postdate": "2020.12.14"
+        },
+        {
+            "type": "video/mp4",
+            "title": "road",
+            "video": "./videos/road.mp4",
+            "image": "./images/road.png",
+            "uploader": "recordings;",
+            "viewcount": "98만",
+            "postdate": "2020.12.14"
+        }
+    ]
+}
