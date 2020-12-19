@@ -1,7 +1,6 @@
 //백엔드의 시작점 
 const express = require('express')
 const app = express()
-const port = 5000
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const { User } = require("./models/User");
@@ -33,7 +32,7 @@ app.get('/', (req, res) => {
 /*--회원가입 라우터--*/
 
 //회원 가입할 때 필요한 정보들을 client에서 가져오면 데이터베이스에 넣어줌
-app.post('/register', (req, res)=>{
+app.post('/api/users/register', (req, res)=>{
   //인스턴스
   // body 안에는 json 형식의 데이터가 들어 있음.
   //requset body 안에 json이 있을 수 있는 이유 -> body parser
@@ -48,7 +47,7 @@ app.post('/register', (req, res)=>{
 })
 
 /*--로그인 라우터--*/
-app.post('/api/login', (req, res)=> {
+app.post('/api/users/login', (req, res)=> {
 
   //요청된 이메일을 데이터베이스 안에서 찾기
   User.findOne({ email: req.body.email }, (err, user)=> {
@@ -112,6 +111,16 @@ app.get('/api/users/logout', auth, (req, res) => {
   )
 })
 
+const port = 5000;
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
+})
+
+app.get('/api/hello', (req,res) => {
+  
+  /*
+  req 작업
+  */
+
+  res.send('안녕하세요');
 })
