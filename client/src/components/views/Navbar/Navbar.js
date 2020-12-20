@@ -43,9 +43,12 @@ function Navbar(props) {
                     <header>
                         <StartHeader/>
                         <div className="end">
+                            <a href="/video/upload">
                             <button>
-                                    <FontAwesomeIcon icon= {faVideo} className="icon" />
+                                    <FontAwesomeIcon icon= {faVideo} className="icon"
+                                    />
                             </button>
+                            </a>
                                 <a onClick={onLogoutHandler}>Logout</a>
                             </div>
                     </header>
