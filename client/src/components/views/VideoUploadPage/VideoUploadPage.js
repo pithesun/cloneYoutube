@@ -3,16 +3,21 @@ import { Typography, Button, Form, message, Input } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import Dropzone from 'react-dropzone';
 import Axios from 'axios';
+import { useSelector } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 
 const { TextArea } = Input;
 const { Title } = Typography;
 
-function VideoUploadPage() {
+function VideoUploadPage(props) {
+    const user = useSelector(state => state.user) //state store에서 가져옴
+
     const [VideoTitle, setVideoTitle] = useState("")
     const [Description, setDescription] = useState("")
     const [Private, setPrivate] = useState(0) // 0은 private 1은 public으로
     const [Category, setCategory] = useState("Film & Animation")
+
     //동영상과 썸네일 state
     const [FilePath, setFilePath] = useState("")
     const [Duration, setDuration] = useState("")
@@ -77,12 +82,39 @@ function VideoUploadPage() {
             }
         }) 
     }
+    
+    const onSubmit = (e) => {
+        e.preventDefault(); // 원래 하려고 했던 것을 방지
+        const variable = {
+            writer: user.userData._id, //리덕스를 통해 가져옴
+            title: VideoTitle,
+            description: Description,
+            privacy: Private,
+            filePath: FilePath,
+            category: Category,
+            duration: Duration,
+            thumbnail: ThumbnailPath,
+        }
+        Axios.post('/api/video/uploadVideo', variable)
+        .then(response => {
+            if(response.data.success) {
+                message.success('성공적으로 업로드를 했습니다.')
+                setTimeout(() => {
+                    props.history.push('/')
+                }, 3000);
+                
+            } else {
+                alert('비디오 업로드에 실패했습니다.')
+            }
+        })
+
+    } 
     return (
         <div style={{ maxWidth: '700px', margin: '2rem auto' }}>
             <div style={{ textAlign: "center", marginBottom: '2rem'}}>
                 <Title level={2}>Upload Video</Title>
             </div>
-            <Form onSubmit>
+            <Form onSubmit={onSubmit}>
                 <div style= {{ display: "flex", justifyContent: 'space-between'}}>
                         <Dropzone
                             onDrop={onDrop}
@@ -138,8 +170,8 @@ function VideoUploadPage() {
                         ))
                     }
                 </select>
-                <Button type="primary" size="large" onClick>
-
+                <Button type="primary" size="large" onClick={onSubmit}>
+                    Submit
                 </Button>
 
             </Form>
@@ -147,4 +179,4 @@ function VideoUploadPage() {
     )
 }
 
-export default VideoUploadPage
+export default withRouter(VideoUploadPage)

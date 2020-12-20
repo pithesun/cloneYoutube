@@ -1,32 +1,66 @@
-import React, {useEffect} from 'react'
-import axios from 'axios';
-import { withRouter } from 'react-router-dom';
+import React, {useEffect, useState}from 'react';
 
+import Axios from 'axios';
+import { withRouter } from 'react-router-dom';
+import { Card, Avatar, Col, Typography, Row } from 'antd';
+import moment from 'moment';
+const { Title } = Typography;
+const { Meta } = Card;
 
 function LandingPage(props) {
 
-    //랜딩페이지에 들어오자마자 실행 
+    const [Video, setVideo] = useState([])
+    //랜딩페이지에 들어오자마자 실행 - DOM 
     //get request를 서버로 보냄
-    useEffect(() => {
-        axios.get('/api/hello')
-        .then(response => console.log(response))
-    }, [])
 
-    const onLogoutHandler = () => {
-        axios.get('/api/users/logout') //body 없이 준다.
+    useEffect(() => { //class - componentDidMount
+        Axios.get('/api/video/getVideos')
         .then(response => {
             if(response.data.success){
-                props.history.push('/login');
-            }else{
-                alert('로그아웃 하는데 실패했습니다.');
+                setVideo(response.data.videos)
+            } else{
+                alert('비디오 가져오기를 실패했습니다.')
             }
         })
-    }
+    }, [])
+
+    const renderCards = Video.map((video, index) => {
+
+    let minutes = Math.floor(video.duration / 60);
+    let seconds = Math.floor((video.duration/60 - minutes))
+
+
+        return <Col lg={6} md={8} xs={24}> {/* 반응형으로 만들기 */}
+                <a href={`/video/post/${video._id}`}> {/* 링크 걸어주기 */}
+                    <div style={{ position: 'relative'}}>
+                        <img style={{ width: '100%' }} src={`http://localhost:5000/${video.thumbnail}`} />
+                        <div className="duration">
+                            <span>{minutes} : {seconds}</span>
+                        </div>
+                    </div>
+                </a>
+            <br />
+            <Meta
+                avatar={
+                    <Avatar src={video.writer.image }/> 
+                }
+                title={video.title}
+                description=""
+            />
+            <span>{video.writer.name}</span> <br />
+            <span style={{ marginLeft: '3rem'}}>{video.views} views</span> -
+            <span>{moment(video.createAt).format("MMM Do YY")}</span>
+        </Col>
+    })
 
     return (
-        <div style= {{display: 'flex', justifyContent: 'center', 
-                    alignItems: 'center', width: '100%', height: '100vh'}}>
-            <h2>LandingPage</h2>
+        <div style= {{ width: '85%', margin: '3rem auto' }}>
+            <Title level={2}> A List of Videos </Title>
+            <hr />
+            <Row gutter={[32, 16]}>
+                {renderCards}
+                
+            </Row>
         </div>
     )
 }

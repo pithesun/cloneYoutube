@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-//const { Video } = require("../models/Video");
+const { Video } = require("../models/Video");
 const { auth } = require("../middleware/auth");
 const multer = require("multer");
 
@@ -77,6 +77,26 @@ router.post('/thumbnails', (req, res) => {
     })
 })
 
+router.post('/uploadVideo', (req, res) => {
+
+    const video = new Video(req.body) // client가 보낸 모든 정보(videouploadpage)
+    
+    video.save((err, doc) => {
+        if(err) return res.json({ success: false, err })
+        res.status(200).json({ success: true })
+    })
+})
+
+router.get('/getVideos', (req, res) => {
+
+    // 비디오를 DB에서 가져오기   // collection에서 가져옴
+    Video.find()
+    .populate('writer') //populate를 해야 ref한 모델을 가져올 수 있음
+    .exec((err, videos)=> {
+        if(err) return res.status(400).send(err);
+        res.status(200).json({success: true, videos})
+    })
+})
 
 
 module.exports = router;
