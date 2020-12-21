@@ -1,5 +1,4 @@
-import React, {useEffect, useState}from 'react';
-
+import React, {useEffect, useState} from 'react';
 import Axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import { Card, Avatar, Col, Typography, Row } from 'antd';
@@ -26,19 +25,20 @@ function LandingPage(props) {
 
     const renderCards = Video.map((video, index) => {
 
-    let minutes = Math.floor(video.duration / 60);
-    let seconds = Math.floor((video.duration/60 - minutes))
+        let minutes = Math.floor(video.duration / 60);
+        let seconds = Math.floor(video.duration/60 - minutes);
 
-
-        return <Col lg={6} md={8} xs={24}> {/* 반응형으로 만들기 */}
-                <a href={`/video/post/${video._id}`}> {/* 링크 걸어주기 */}
-                    <div style={{ position: 'relative'}}>
+        return <Col lg={6} md={8} xs={24} key={video._id}> {/* 반응형으로 만들기 */}
+                
+                <div style={{ position: 'relative'}}>
+                    <a href={`/video/${video._id}`}> {/* 링크 걸어주기 */}
                         <img style={{ width: '100%' }} src={`http://localhost:5000/${video.thumbnail}`} />
                         <div className="duration">
                             <span>{minutes} : {seconds}</span>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
+                
             <br />
             <Meta
                 avatar={
